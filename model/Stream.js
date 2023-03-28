@@ -1,18 +1,23 @@
-import mongoose from 'mongoose'
+import mongoose from 'mongoose';
 
-const StreamSchema = new mongoose.Schema({
-    link: {
+
+const streamSchema = mongoose.Schema({
+    link:{
         type: String,
-        required: true,
-        unique: true
-    },
-    username: {
-        type: String,
-        
+        required: true
     },
     
+    
+    username:{
+        type: String,
+        required: true,
+    
+    },
+}, {timestamps: true,
+}
+)
 
-}, {timestamps: true});
+mongoose.models = {};
+const Stream =  mongoose.model("Stream", streamSchema);
 
-const Stream = mongoose.models.Stream || mongoose.model("Stream", StreamSchema);
 export default Stream;

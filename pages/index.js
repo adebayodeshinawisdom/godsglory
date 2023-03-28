@@ -1,13 +1,46 @@
-import React from 'react';
-import Stream from '../model/Stream';
-import db from '../utils/db';
+import React, { useEffect, useReducer } from 'react';
 import Slides from '../components/Slides';
 import Link from 'next/link'
+import { getError } from '../utils/error';
+import axios from 'axios';
 
-const Home = (props) => {
+function reducer(state, action) {
+  switch (action.type) {
+    case 'FETCH_REQUEST':
+      return { ...state, loading: true, error: '' };
+    case 'FETCH_SUCCESS':
+      return { ...state, loading: false, stream: action.payload, error: '' };
+    case 'FETCH_FAIL':
+      return { ...state, loading: false, error: action.payload };
+    default:
+      return state;
+  }
+}
+
+
+const Home = () => {
+  
+  const [{ loading, error, stream }, dispatch] = useReducer(reducer, {
+    loading: true,
+    stream: {},
+    error: '',
+  });
+
+  useEffect(() => {
+    const fetchOrders = async () => {
+      try {
+        dispatch({ type: 'FETCH_REQUEST' });
+        const { data } = await axios.get(`/api/stream`);
+        dispatch({ type: 'FETCH_SUCCESS', payload: data });
+      } catch (err) {
+        dispatch({ type: 'FETCH_FAIL', payload: getError(err) });
+      }
+    };
+    fetchOrders();
+  }, []);
   const style1 = {border: "none"}
   const style2 = {overflow: "hidden"}
-  const streams = props;
+  
   return (
     <>
 
@@ -99,21 +132,24 @@ Higher National Diploma  in Building  Technology respectively between 1988-1991 
 
       </div>
 
-      {streams && [...Array(streams)].map((content) => (
-    
-           
-    
-   
-    <iframe  
-    src={content.link} allowFullScreen="true" style={{border:"none", overflow:"hidden", width: "1920", height: "1080"}}  frameborder="0" allow="autoplay"></iframe>
+      {stream && stream.map(m=> {
+        return(
+          <div className='container'>
+
+          <div className='container' dangerouslySetInnerHTML={{ __html: `${m.link}`}} />
 
        
-   
-  
-        ))}
+        </div>
+        )
+
+      })}
  
 
     </div>
+    <br/>
+    <br/>
+    <br/>
+
     
     
 
@@ -125,12 +161,3 @@ Higher National Diploma  in Building  Technology respectively between 1988-1991 
 
 export default Home
 
-export async function getServerSideProps() {
-  await db.connect();
-  const streams = await Stream.find().lean();
-  return {
-    props: {
-      streams: streams.map(db.convertDocToObj),
-    },
-  };
-}

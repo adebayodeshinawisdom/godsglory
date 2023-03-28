@@ -27,6 +27,18 @@ const handler = async (req, res) => {
     await db.disconnect();
     res.send({ message: 'Product created successfully', stream });
   };
- 
+
+  const getHandler = async (req, res, user) => {
+
+    await db.connect();
+    
+    const stream = await Stream.find({});
+    await db.disconnect();
+    res.send(stream);
+    
+    
+    
+    
+    };
 
   export default handler;
