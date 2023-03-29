@@ -15,6 +15,11 @@ import Footer from './../components/Footer';
   <SessionProvider session={session}>
   <StoreProvider>
   <Header/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+
   {Component.auth ? (
           <Auth adminOnly={Component.auth.adminOnly}>
             <Component {...pageProps} />
@@ -22,6 +27,9 @@ import Footer from './../components/Footer';
         ) : (
           <Component {...pageProps} />
         )}
+        <br/>
+        <br/>
+        <br/>
     <Footer/>
     </StoreProvider>
     </SessionProvider>

@@ -96,35 +96,13 @@ const Header = () => {
     <>
     <ToastContainer position="bottom-center" limit={1} />
 
-    <Navbar navbar className='navbar-dark sticky-top' expand="md" style={{backgroundColor: "black"}}>
-
-<Nav>
-<Nav.Item style={{color: 'white'}}> <i style={{color: "orange"}} className='fa fa-map-marker'></i> God's Glory Restoration Prophetic Ministry, plot 100, 4th Avenue, near Eco bank, Gwarinpa Estate, Fct , Abuja, Nigeria. </Nav.Item>
+    
 
 
 
 
 
-</Nav>
-
-<Nav navbar className='ml-auto' style={{color: "white"}}>
-
-                   <Nav.Item className='container'>
-                        <Nav.Link style={{color: "orange"}} href="https://www.facebook.com"><i className='fa fa-facebook-square' style={{paddingLeft: "5px"}}></i></Nav.Link>
-                        <Nav.Link style={{color: "orange"}} href="https://www.youtube.com"><i className='fa fa-youtube' style={{paddingLeft: "5px"}}></i></Nav.Link>
-                        <Nav.Link style={{color: "orange"}} href="https://www.instagram.com"><i className='fa fa-instagram' style={{paddingLeft: "5px"}}></i></Nav.Link>
-                    </Nav.Item>
-    </Nav>
-
-
-
-</Navbar>
-
-
-
-
-
-    <Navbar   variant="light" expand="lg"  collapseOnSelect>
+    <Navbar   variant="light" expand="lg" fixed="top" collapseOnSelect>
         
         <Container>
         <NavbarBrand><img width="60px" height="60px" src="/images/logo.jpg"  />GGRPM</NavbarBrand>

@@ -20,16 +20,16 @@ const Footer = () => {
             <div className='col-12 col-md-4'>
                 <p> <i style={{color: "orange"}} className='fa fa-map-marker'></i> Gods Glory Restoration Prophetic Ministry, 
                     Plot 100, 4th Avenue Near Ecobank, Gwarinpa Estate, FCT- Abuja
-                    Estate, <br/> Lokogoma FCT, Abuja </p>
+                    <br/> </p>
                     <p> <i style={{color: "orange"}} className='fa fa-phone'></i>
-                    08033062695
-                    08020699304
+                    
+                    08037041821, 08029404829, 08038144518
 
 
                     </p>
 
                     <p> <i style={{color: "orange"}} className='fa fa-envelope'></i>
-                     godsgloryevans@yahoo.com <br/>
+                     godsgloryevan@yahoo.com <br/>
                      abiolamatthew16@yahoo.com
 
 

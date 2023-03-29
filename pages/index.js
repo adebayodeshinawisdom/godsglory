@@ -65,7 +65,7 @@ Father: Late George Abiola
 
 Mother: Mrs Deborah Abiola
 
-Place of birth :Oloba, Ibadan, Oyo state.</p>
+Place of birth :Oloba, Ibadan, Oyo state. Wife: Mrs Shola Abiola and blessed with four children males and females</p>
 <br/>
 <br/>
 
@@ -81,7 +81,7 @@ Secondary School attended: Community modern School Erunmu , Ibadan East , Oyo st
 
 Tertiary institution attended: Yaba College of Technology Yaba, Lagos; where he obtained Ordinary National Diploma and
 
-Higher National Diploma  in Building  Technology respectively between 1988-1991 and 1992-1995</p>
+Higher National Diploma  in Building  Technology respectively between 1988-1991 and 1992-1995. Later did his PGD in Public Administration at National Open University (NOUN), Abuja, Nigeria.</p>
 
 
 
@@ -138,7 +138,7 @@ Higher National Diploma  in Building  Technology respectively between 1988-1991 
 
           <div className='container' dangerouslySetInnerHTML={{ __html: `${m.link}`}} />
 
-       
+            
         </div>
         )
 
