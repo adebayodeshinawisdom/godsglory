@@ -22,7 +22,7 @@ const Home = () => {
   
   const [{ loading, error, stream }, dispatch] = useReducer(reducer, {
     loading: true,
-    stream: {},
+    stream: [],
     error: '',
   });
 
