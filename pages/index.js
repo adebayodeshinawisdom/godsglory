@@ -116,7 +116,7 @@ Higher National Diploma  in Building  Technology respectively between 1988-1991 
 
         <Col md={6}>
 
-          <img src="/images/teamnew.jpeg" style={{height: '700px'}}/>
+          <img src="/images/teamnew.jpeg" style={{height: '700px', width: '400px'}}/>
 
 
 
