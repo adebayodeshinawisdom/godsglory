@@ -10,7 +10,7 @@ const streamSchema = mongoose.Schema({
     
     username:{
         type: String,
-        required: true,
+       
     
     },
 }, {timestamps: true,

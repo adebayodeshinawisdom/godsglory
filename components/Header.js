@@ -102,7 +102,7 @@ const Header = () => {
 
 
 
-    <Navbar   variant="light" expand="lg" fixed="top" collapseOnSelect>
+    <Navbar  style={{backgroundColor: 'white'}} variant="light" expand="lg" fixed="top" collapseOnSelect>
         
         <Container>
         <NavbarBrand><img width="60px" height="60px" src="/images/logo.jpg"  />GGRPM</NavbarBrand>

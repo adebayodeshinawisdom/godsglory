@@ -1,8 +1,10 @@
 import React, { useEffect, useReducer } from 'react';
 import Slides from '../components/Slides';
+import Loader from '../components/Loader'
 import Link from 'next/link'
 import { getError } from '../utils/error';
 import axios from 'axios';
+import { Col, Row } from 'react-bootstrap';
 
 function reducer(state, action) {
   switch (action.type) {
@@ -54,10 +56,10 @@ const Home = () => {
     <br/>
 
     <div className='container'>
-      <div className='row'>
-      <h1 className='text-center'>Biography of Prophet Abiola Mathew </h1>
+      <Row>
+            <h1 className='text-center'>Biography of Prophet Abiola Mathew </h1>
       
-        <div className='col-md-6'>
+        <Col md={6}>
          
           <p> The biography of Prophet Abiola Matthew
 
@@ -86,20 +88,20 @@ Higher National Diploma  in Building  Technology respectively between 1988-1991 
 
 
 
-        </div>
+        </Col>
 
 
-        <div className='col-md-6'>
-          <img style={{height:"800px"}}src="/images/team2.jpg"/>
+        <Col md={6}>
+          <img style={{height:"600px"}}src="/images/team2.jpg"/>
 
 
-        </div>
+        </Col>
 
        
 
         <h1 className='text-center'>About God's Glory Restoration Prophetic Ministry.</h1>
 
-        <div className='col-md-6'>
+        <Col md={6}>
           <p style={{textAlign: "justify", fontSize: "large", lineHeight:"40px" }}>In October 2nd, 2005 I heard a still small voice from God about God’s Glory Restoration Prophetic Ministry and I didn’t understand the Meaning of the Ministry’s name until God told me to leave my profession ( Building Engineering)and be a full time Minister after I have spent 20years in Mountain of Fire and Miracles Ministry.
 
             </p>
@@ -110,29 +112,28 @@ Higher National Diploma  in Building  Technology respectively between 1988-1991 
             </p>
 
 
-        </div>
+        </Col>
 
-        <div className='col-md-6'>
+        <Col md={6}>
 
-          <img src="/images/teamnew.jpeg"/>
-
-
-
-        </div>
+          <img src="/images/teamnew.jpeg" style={{height: '700px'}}/>
 
 
 
-
-        
+        </Col>
 
 
 
 
+        <br/>
+        <br/>
 
 
-      </div>
+      <Col md={6}>
+      {loading ? (<Loader/>): (
 
-      {stream && stream.map(m=> {
+     
+      stream && stream.map(m=> {
         return(
           <div className='container'>
 
@@ -142,7 +143,15 @@ Higher National Diploma  in Building  Technology respectively between 1988-1991 
         </div>
         )
 
-      })}
+      })
+      )}
+      </Col>
+
+
+
+      </Row>
+
+     
  
 
     </div>
