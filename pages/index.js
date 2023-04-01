@@ -57,9 +57,10 @@ const Home = () => {
 
 <Container>
       <Row>
-            <h1 className='text-center'>Biography of Prophet Abiola Mathew </h1>
+           
       
         <Col md={6}>
+        <h1 className='text-center'>Biography of Prophet Abiola Mathew </h1>
          
           <p> The biography of Prophet Abiola Matthew
 
@@ -99,9 +100,10 @@ Higher National Diploma  in Building  Technology respectively between 1988-1991 
 
        
 
-        <h1 className='text-center'>About God's Glory Restoration Prophetic Ministry.</h1>
+        
 
         <Col md={6}>
+        <h1 className='text-center'>About God's Glory Restoration Prophetic Ministry.</h1>
           <p style={{textAlign: "justify", fontSize: "large", lineHeight:"40px" }}>In October 2nd, 2005 I heard a still small voice from God about God’s Glory Restoration Prophetic Ministry and I didn’t understand the Meaning of the Ministry’s name until God told me to leave my profession ( Building Engineering)and be a full time Minister after I have spent 20years in Mountain of Fire and Miracles Ministry.
 
             </p>
