@@ -4,7 +4,7 @@ import Loader from '../components/Loader'
 import Link from 'next/link'
 import { getError } from '../utils/error';
 import axios from 'axios';
-import { Col, Row } from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
 
 function reducer(state, action) {
   switch (action.type) {
@@ -55,7 +55,7 @@ const Home = () => {
     <br/>
     <br/>
 
-    <div className='container'>
+<Container>
       <Row>
             <h1 className='text-center'>Biography of Prophet Abiola Mathew </h1>
       
@@ -136,7 +136,7 @@ Higher National Diploma  in Building  Technology respectively between 1988-1991 
       </Row>
       <hr/>
      <br/>
-     <Row>
+     <Row className='container'>
 
      <Col md={6}>
       {loading ? (<Loader/>): (
@@ -156,9 +156,9 @@ Higher National Diploma  in Building  Technology respectively between 1988-1991 
       )}
       </Col>
      </Row>
- 
+ </Container>
 
-    </div>
+
     <br/>
     <br/>
     <br/>
