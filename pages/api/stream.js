@@ -30,7 +30,7 @@ const handler = async (req, res) => {
 
     await db.connect();
     
-    const stream = await Stream.find({}).limit(1);
+    const stream = await Stream.find({}).sort({_id: -1}).limit(1)
     await db.disconnect();
     res.send(stream);
     

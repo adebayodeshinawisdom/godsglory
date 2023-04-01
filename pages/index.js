@@ -129,7 +129,16 @@ Higher National Diploma  in Building  Technology respectively between 1988-1991 
         <br/>
 
 
-      <Col md={6}>
+     
+
+
+
+      </Row>
+      <hr/>
+     <br/>
+     <Row>
+
+     <Col md={6}>
       {loading ? (<Loader/>): (
 
      
@@ -146,12 +155,7 @@ Higher National Diploma  in Building  Technology respectively between 1988-1991 
       })
       )}
       </Col>
-
-
-
-      </Row>
-
-     
+     </Row>
  
 
     </div>
