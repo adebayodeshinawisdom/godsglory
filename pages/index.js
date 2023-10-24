@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { getError } from '../utils/error';
 import axios from 'axios';
 import { Col, Container, Row } from 'react-bootstrap';
+import LiveVideo from '../components/LiveVideo';
 
 function reducer(state, action) {
   switch (action.type) {
@@ -156,6 +157,8 @@ Higher National Diploma  in Building  Technology respectively between 1988-1991 
 
       })
       )}
+
+      <LiveVideo/>
       </Col>
      </Row>
  </Container>
