@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import Loader from './Loader';
 
 function LiveVideo() {
   const [videoData, setVideoData] = useState([]);
@@ -9,6 +10,7 @@ function LiveVideo() {
     const maxResults = 1;
     const type = 'live';
     const apiKey = 'AIzaSyB5kDGlj_ez1SQBHUO0lSusWZalKAEJeRw'; // Replace with your actual API key
+  
     const apiUrl = `https://www.googleapis.com/youtube/v3/search?part=${part}&maxResults=${maxResults}&type=${type}&channelId=${channelId}&key=${apiKey}`;
 
     const response = await axios.get(apiUrl);
@@ -30,7 +32,7 @@ function LiveVideo() {
   }, []);
 
   if (videoData.length === 0) {
-    return <p>Loading...</p>;
+    return <Loader/>;
   }
 
   const video = videoData.items[0]; // Assuming you want the first result
@@ -42,7 +44,7 @@ function LiveVideo() {
       <iframe
         width="560"
         height="315"
-        src={videoUrl}
+        src={`https://www.youtube.com/embed/${videoId}`}
         frameBorder="0"
         allowFullScreen
         title="Live Video"

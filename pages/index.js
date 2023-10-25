@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer } from 'react';
+import React, { useEffect, useReducer, useState } from 'react';
 import Slides from '../components/Slides';
 import Loader from '../components/Loader'
 import Link from 'next/link'
@@ -28,8 +28,72 @@ const Home = () => {
     stream: [],
     error: '',
   });
+ 
 
-  useEffect(() => {
+  const Videos = () => {
+    const [videos, setVideos] = useState([]);
+
+    const fetchChannelVideos = async (channelId) => {
+      const part = 'snippet';
+      const maxResults = 10;
+      const type = 'video';
+      const apiKey = "AIzaSyB5kDGlj_ez1SQBHUO0lSusWZalKAEJeRw";
+      const apiUrl = `https://www.googleapis.com/youtube/v3/search?part=${part}&maxResults=${maxResults}&type=${type}&channelId=${channelId}&key=${apiKey}`;
+    
+      const response = await axios.get(apiUrl);
+      return response.data.items;
+    };
+  
+   useEffect(() => {
+  const fetchVideos = async () => {
+    try {
+      const channelId = "UCT2tbCh0APZOTgBh2eMSHeg";
+      console.log(channelId)
+      const videos = await fetchChannelVideos(channelId);
+      setVideos(videos);
+    } catch (error) {
+      console.error('Error fetching videos:', error);
+    }
+  };
+
+  fetchVideos();
+}, []);
+
+  
+    return (
+      <>
+      
+      <div className="container">
+        <div className='row'>
+          
+          
+          {videos.map((video) => (
+          <div key={video.id.videoId} className="col-sm-12 col-md-4">
+          <h3>{video.snippet.title}</h3>
+          <p>{video.snippet.description}</p>
+          
+          <div className="video-container">
+            <iframe
+              width="100%"
+              height="400"
+              src={`https://www.youtube.com/embed/${video.id.videoId}`}
+              frameBorder="0"
+              allowFullScreen
+              title={video.snippet.title}
+            ></iframe>
+          </div>
+        </div>
+        
+          
+        ))}
+        </div>
+      </div>
+      </>
+    );
+  }
+  
+
+  {/*useEffect(() => {
     const fetchOrders = async () => {
       try {
         dispatch({ type: 'FETCH_REQUEST' });
@@ -40,9 +104,10 @@ const Home = () => {
       }
     };
     fetchOrders();
-  }, []);
+  }, []);*/}
   const style1 = {border: "none"}
   const style2 = {overflow: "hidden"}
+ 
   
   return (
     <>
@@ -142,7 +207,7 @@ Higher National Diploma  in Building  Technology respectively between 1988-1991 
      <Row className='container'>
 
      <Col md={6}>
-      {loading ? (<Loader/>): (
+      {/*{loading ? (<Loader/>): (
 
      
       stream && stream.map(m=> {
@@ -156,11 +221,23 @@ Higher National Diploma  in Building  Technology respectively between 1988-1991 
         )
 
       })
-      )}
+    )}*/}
+
+      <div>
+        <h4>Livestream</h4>
+      
+        
+      </div>
 
       <LiveVideo/>
       </Col>
+
+
+      
+      <Videos/>
+    
      </Row>
+     
  </Container>
 
 
