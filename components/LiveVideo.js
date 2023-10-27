@@ -8,10 +8,11 @@ function LiveVideo() {
   const fetchChannelVideos = async (channelId) => {
     const part = 'snippet';
     const maxResults = 1;
-    const type = 'live';
+    const type = 'video';
     const apiKey = 'AIzaSyB5kDGlj_ez1SQBHUO0lSusWZalKAEJeRw'; // Replace with your actual API key
-  
-    const apiUrl = `https://www.googleapis.com/youtube/v3/search?part=${part}&maxResults=${maxResults}&type=${type}&channelId=${channelId}&key=${apiKey}`;
+    const eventType = 'live'
+    const apiUrl = `https://www.googleapis.com/youtube/v3/search?part=${part}&maxResults=${maxResults}&type=${type}&eventType=${eventType}&channelId=${channelId}&key=${apiKey}`;
+
 
     const response = await axios.get(apiUrl);
     return response.data;
@@ -32,7 +33,7 @@ function LiveVideo() {
   }, []);
 
   if (videoData.length === 0) {
-    return <Loader/>;
+    return <p>Loading...</p>;
   }
 
   const video = videoData.items[0]; // Assuming you want the first result
@@ -44,7 +45,7 @@ function LiveVideo() {
       <iframe
         width="560"
         height="315"
-        src={`https://www.youtube.com/embed/${videoId}`}
+        src={videoUrl}
         frameBorder="0"
         allowFullScreen
         title="Live Video"
